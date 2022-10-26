@@ -2,7 +2,11 @@
 POST http://localhost:3000/task 
 content-type: application/json
 
-{"task": "Task 4"}
+{
+    "task": "Task 4",
+    "tags":["str","str"],
+    "status": "processing"
+}
 
 ###
 GET http://localhost:3000/task

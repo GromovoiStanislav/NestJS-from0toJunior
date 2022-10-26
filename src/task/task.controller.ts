@@ -7,7 +7,11 @@ import {
   Redirect,
   Param,
   Body,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
+
+import { createTaskDTO } from '@src/task/dto/create-task.dto';
 import { ITask } from './task.interface';
 import { TaskService } from './task.service';
 
@@ -27,9 +31,10 @@ export class TaskController {
     return this.testService.getTaskById(id);
   }
 
+  @UsePipes(new ValidationPipe())
   @Post()
   @HttpCode(201)
-  createTask(@Body('task') task: string): ITask {
+  createTask(@Body() task: createTaskDTO): ITask {
     return this.testService.createTask(task);
   }
 }
