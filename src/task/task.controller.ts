@@ -29,8 +29,7 @@ export class TaskController {
 
   @Post()
   @HttpCode(201)
-  createTask(@Body('task') task: ITask): ITask {
-    console.log(task);
+  createTask(@Body('task') task: string): ITask {
     return this.testService.createTask(task);
   }
 }

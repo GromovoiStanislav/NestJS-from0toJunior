@@ -2,7 +2,7 @@
 POST http://localhost:3000/task 
 content-type: application/json
 
-{"task":{"id": 4, "task": "Task 4"}}
+{"task": "Task 4"}
 
 ###
 GET http://localhost:3000/task
