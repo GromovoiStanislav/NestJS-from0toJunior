@@ -1,4 +1,6 @@
 import {
+  UseFilters,
+  HttpException,
   Controller,
   Get,
   Post,
@@ -10,17 +12,20 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-
+import { AllExceptionsFilter } from '@src/exeption-filters/exception.filter';
 import { createTaskDTO } from '@src/task/dto/create-task.dto';
 import { ITask } from './task.interface';
 import { TaskService } from './task.service';
 
+//@UseFilters(AllExceptionsFilter)
 @Controller('task')
 export class TaskController {
   constructor(private testService: TaskService) {}
 
   @Get()
   getAllTasks(): ITask[] {
+    //throw new Error('Какая-то ошибка');
+    //throw new HttpException('Какая-то ошибка', 401);
     return this.testService.getAllTasks();
   }
 
