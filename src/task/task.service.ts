@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   HttpException,
   HttpStatus,
   Injectable,
@@ -27,9 +28,17 @@ export class TaskService {
     return task;
   }
 
-  createTask({ task, tags, status }: createTaskDTO): ITask {
-    const newTask = new Task(task, tags, status);
+  createTask({ task, email, tags, status }: createTaskDTO): ITask {
+    const newTask = new Task(task, email, tags, status);
     this.tasks.push(newTask);
     return newTask;
+  }
+
+  getTasksByEmail(email: string): ITask[] {
+    const tasks = this.tasks.filter((task) => task.email === email);
+    if (tasks.length === 0) {
+      throw new BadRequestException('Таски не были найдены');
+    }
+    return tasks;
   }
 }

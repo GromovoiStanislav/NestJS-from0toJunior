@@ -1,6 +1,7 @@
 export interface ITask {
   id: number;
   task: string;
+  email: string;
   status: Status;
   tags: string[];
   createdAt: Date;

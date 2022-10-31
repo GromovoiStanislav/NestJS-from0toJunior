@@ -4,6 +4,7 @@ import {
   IsEnum,
   IsNotEmpty,
   ArrayNotEmpty,
+  IsEmail,
 } from 'class-validator';
 import { Status } from '../task.interface';
 
@@ -20,4 +21,8 @@ export class createTaskDTO {
   @IsOptional()
   @IsEnum(Status, { message: 'Не верный тип статуса' })
   status?: Status;
+
+  @IsOptional()
+  @IsEmail({}, { message: 'Некоректный email' })
+  email?: string;
 }

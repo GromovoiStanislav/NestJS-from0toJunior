@@ -4,8 +4,8 @@ content-type: application/json
 
 {
     "task": "Task 4",
-    "tags":["str","str"],
-    "status": "processing"
+    "email": "task@example.ru",
+    "tags":["str","str"]
 }
 
 ###
@@ -13,4 +13,8 @@ GET http://localhost:3000/task
 
 
 ###
-GET http://localhost:3000/task/3
+GET http://localhost:3000/task/1667193281079
+
+###
+GET http://localhost:3000/task/email/task@example.ru
+
