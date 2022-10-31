@@ -1,4 +1,5 @@
 import {
+  Logger,
   BadRequestException,
   HttpException,
   HttpStatus,
@@ -12,9 +13,12 @@ import { ITask } from './task.interface';
 
 @Injectable()
 export class TaskService {
+  private readonly logger = new Logger(TaskService.name);
   private tasks: ITask[] = [];
 
   getAllTasks(): ITask[] {
+    //Logger.log('Get all tasks', 'Taskservice');
+    this.logger.log('Get all tasks');
     return this.tasks;
   }
 

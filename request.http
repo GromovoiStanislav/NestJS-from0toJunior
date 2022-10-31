@@ -11,7 +11,6 @@ content-type: application/json
 ###
 GET http://localhost:3000/task
 
-
 ###
 GET http://localhost:3000/task/1667193281079
 
